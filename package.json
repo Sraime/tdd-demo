@@ -8,26 +8,37 @@
   },
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "cc:init": "codeceptjs init",
     "cc:run": "codeceptjs run",
     "cc:gt": "codeceptjs gt",
     "cc:gherkin:init": "codeceptjs gherkin:init",
     "cc:gherkin:snippets": "codeceptjs gherkin:snippets",
     "allure:serve": "allure serve ./test/e2e/output",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "linter": "eslint app test statics",
+    "linter:fix": "eslint app test statics --fix",
+    "test:unit": "mocha --recursive ./test/unit",
+    "test:e2e": "codeceptjs run"
   },
   "author": "Robin COLLAS",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "acorn": "^6.1.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "pug": "^2.0.3"
   },
   "devDependencies": {
     "allure-commandline": "^2.9.0",
     "chai": "^3.5.0",
     "chai-sinon": "^2.8.1",
-    "codeceptjs": "^2.0.6",
+    "codeceptjs": "^2.0.7",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "mocha": "^5.2.0",
-    "puppeteer": "^1.12.2",
-    "sinon": "^7.2.4"
+    "puppeteer": "^1.13.0",
+    "sinon": "^7.2.7"
   }
 }
