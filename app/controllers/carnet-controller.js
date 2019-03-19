@@ -1,7 +1,7 @@
 const CarnetController = {
 
   getForm(req, res) {
-
+    res.render('index');
   },
 };
 
