@@ -46,5 +46,19 @@ describe('main js static file', () => {
       expect(global.document.getElementById).to.have.not.been.calledWith('btn-enregistrer');
       expect(objBtn.disabled).to.equal(true);
     });
+
+    it('should not enable button if the field prenom is not set', () => {
+      global.document.getElementById.withArgs('input-nom').returns({ value: 'NNNNN' });
+      global.document.getElementById.withArgs('input-prenom').returns({ value: '' });
+      global.document.getElementById.withArgs('input-tel').returns({ value: '000000' });
+
+      main.onFieldChange();
+
+      expect(global.document.getElementById).to.have.been.calledWith('input-nom');
+      expect(global.document.getElementById).to.have.been.calledWith('input-prenom');
+      expect(global.document.getElementById).to.have.not.been.calledWith('input-tel');
+      expect(global.document.getElementById).to.have.not.been.calledWith('btn-enregistrer');
+      expect(objBtn.disabled).to.equal(true);
+    });
   });
 });
