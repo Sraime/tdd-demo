@@ -1,14 +1,15 @@
 html
     head
+        script(src="/main.js")
     body
         form(id="form-enregistrement")
             div(class="group-field")
                 label(for="input-nom") Nom
-                input(id="input-nom", type="text", name="nom")
+                input(id="input-nom", type="text", name="nom" onkeypress="onFieldChange()")
             div(class="group-field")
                 label(for="input-prenom") Prénom
-                input(id="input-prenom", type="text", name="prenom")
+                input(id="input-prenom", type="text", name="prenom" onkeypress="onFieldChange()")
             div(class="group-field")
                 label(for="input-tel") Numéro
-                input(id="input-tel", type="text", name="tel")
+                input(id="input-tel", type="text", name="tel" onkeypress="onFieldChange()")
             button(id="btn-enregistrer", class = "btn-save", disabled) enregistrer
