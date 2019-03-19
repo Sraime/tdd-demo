@@ -14,3 +14,11 @@ Then('La fonctionnalité d\'enregitrement est dans son état initial', () => {
   I.seeInField('prenom', '');
   I.seeInField('tel', '');
 });
+
+When('Je reseigne l\'option d\'enregistrement {string} avec {string}', (name, value) => {
+  I.fillField(name, value);
+});
+
+Then('Je ne peux pas enregistrer le contact', () => {
+  I.seeElement('#form-enregistrement .btn-save:disabled');
+});
