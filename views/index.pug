@@ -4,6 +4,9 @@ html
     body
         if nom 
             p Le contact #{prenom} #{nom} est enregistré
+        if errors
+            if errors.exist
+                p #{prenom} #{nom} existe déjà
         form(id="form-enregistrement" method="post")
             div(class="group-field")
                 label(for="input-nom") Nom
