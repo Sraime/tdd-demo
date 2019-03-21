@@ -9,7 +9,7 @@ const CarnetService = {
   },
 
   validateContact(object) {
-
+    return null;
   }
 
 };
