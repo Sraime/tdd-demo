@@ -91,5 +91,15 @@ describe('carnet service', () => {
 
       expect(result).to.deep.equal({ missing: ['nom'] });
     });
+
+    it('should return an error object when the nom and prenom information is missing', () => {
+      const contact = {
+        tel: '0102030405',
+      };
+
+      const result = carnetService.validateContact(contact);
+
+      expect(result).to.deep.equal({ missing: ['nom', 'prenom'] });
+    });
   });
 });
