@@ -9,6 +9,8 @@ const CarnetService = {
   },
 
   validateContact(object) {
+    if(!object.tel)
+      return { missing: [ 'tel' ] };
     return null;
   }
 

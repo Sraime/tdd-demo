@@ -69,5 +69,16 @@ describe('carnet service', () => {
 
       expect(result).to.be.null;
     });
+
+    it('should return an error object when the tel information is missing', () => {
+      const contact = {
+        nom: 'BABOUCHE',
+        prenom: 'Bob',
+      };
+
+      const result = carnetService.validateContact(contact);
+
+      expect(result).to.deep.equal({ missing: ['tel'] });
+    });
   });
 });
