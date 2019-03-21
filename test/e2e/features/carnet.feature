@@ -19,3 +19,12 @@ Feature: création d'un contact
         And Je reseigne l'option d'enregistrement "prenom" avec "Alice"
         And Je reseigne l'option d'enregistrement "tel" avec "0102030405"
         Then Je peux enregistrer le contact
+
+    Scenario: Après un création réussie, un message de validation apparait et le formulaire réinitialisé
+        Given Je suis sur la page d'accueil
+        When Je reseigne l'option d'enregistrement "nom" avec "CANARY"
+        And Je reseigne l'option d'enregistrement "prenom" avec "Alice"
+        And Je reseigne l'option d'enregistrement "tel" avec "0102030405"
+        And Je valide l'enregistrement du contact
+        Then Le message "Le contact Alice CANARY est enregistré" s'affiche
+        And La fonctionnalité d'enregitrement est dans son état initial

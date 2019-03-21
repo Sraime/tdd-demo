@@ -26,3 +26,11 @@ Then('Je ne peux pas enregistrer le contact', () => {
 Then('Je peux enregistrer le contact', () => {
   I.seeElement('#form-enregistrement .btn-save:not(:disabled)');
 });
+
+When('Je valide l\'enregistrement du contact', () => {
+  I.click('#form-enregistrement .btn-save');
+});
+
+Then('Le message {string} s\'affiche', (message) => {
+  I.see(message);
+});
