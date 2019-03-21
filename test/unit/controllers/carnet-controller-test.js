@@ -105,5 +105,25 @@ describe('carnet controller', () => {
       });
       expect(saveFct).to.have.been.called;
     });
+
+    it('should handle and return already exist errors from the save function', () => {
+      const alreadyExistError = { exist: true };
+      saveFct.returns(alreadyExistError);
+      const request = {
+        body: {
+          nom: 'CANARY',
+          prenom: 'Alice',
+        },
+      };
+
+      carnetController.addContact(request, response);
+
+      expect(response.render).to.have.been.calledWith('index', {
+        nom: 'CANARY',
+        prenom: 'Alice',
+        errors: alreadyExistError,
+      });
+      expect(saveFct).to.have.been.called;
+    });
   });
 });
