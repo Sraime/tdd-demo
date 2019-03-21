@@ -7,8 +7,14 @@ const CarnetController = {
   },
 
   addContact(req, res) {
-    if (carnetService.save({ nom: req.body.nom, prenom: req.body.prenom, tel: req.body.tel })) res.render('index', { errors: { missing: ['tel'] }, nom: req.body.nom, prenom: req.body.prenom });
-    res.render('index', { nom: req.body.nom, prenom: req.body.prenom });
+    const contact = {
+      nom: req.body.nom,
+      prenom: req.body.prenom,
+      tel: req.body.tel,
+    };
+    const errors = carnetService.save(contact);
+    if (errors) { res.render('index', { errors, nom: contact.nom, prenom: contact.prenom }); }
+    res.render('index', { nom: contact.nom, prenom: contact.prenom });
   },
 };
 
