@@ -2,7 +2,9 @@ html
     head
         script(src="/main.js")
     body
-        form(id="form-enregistrement")
+        if nom 
+            p Le contact #{prenom} #{nom} est enregistré
+        form(id="form-enregistrement" method="post")
             div(class="group-field")
                 label(for="input-nom") Nom
                 input(id="input-nom", type="text", name="nom" onkeypress="onFieldChange()")
