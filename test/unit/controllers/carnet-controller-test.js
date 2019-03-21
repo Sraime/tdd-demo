@@ -51,5 +51,20 @@ describe('carnet controller', () => {
       expect(response.render).to.have.been.calledWith('index', { nom: 'CANARY', prenom: 'Alice' });
       expect(saveFct).to.have.been.calledWith(request.body);
     });
+    
+    it('should render Bob BABOUCHE', () => {
+      const request = {
+        body: {
+          nom: 'BABOUCHE',
+          prenom: 'Bob',
+          tel: '0102030405',
+        },
+      };
+  
+      carnetController.addContact(request, response);
+  
+      expect(response.render).to.have.been.calledWith('index', { nom: 'BABOUCHE', prenom: 'Bob' });
+      expect(saveFct).to.have.been.calledWith(request.body);
+    });
   });
 });
