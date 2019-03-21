@@ -5,6 +5,10 @@ const CarnetService = {
   save(object) {
     const errors = this.validateContact(object);
     if (errors) return errors;
+    if (
+      this.list.findIndex(e => e.nom === object.nom && e.prenom === object.prenom)
+      > -1
+    ) { return { exist: true }; }
     this.list.push(object);
     return null;
   },

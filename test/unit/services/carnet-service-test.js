@@ -12,15 +12,18 @@ const carnetService = require('../../../app/services/carnet-service');
 describe('carnet service', () => {
   describe('save', () => {
     let listPush;
+    let listFind;
     let validateFct;
 
     beforeEach(() => {
       listPush = sinon.spy(carnetService.list, 'push');
+      listFind = sinon.stub(carnetService.list, 'findIndex').returns(-1);
       validateFct = sinon.stub(carnetService, 'validateContact').returns(null);
     });
 
     afterEach(() => {
       listPush.restore();
+      listFind.restore();
       validateFct.restore();
     });
 
@@ -54,6 +57,15 @@ describe('carnet service', () => {
 
       expect(listPush).to.have.not.been.called;
       expect(result).to.deep.equal(missingError);
+    });
+
+    it('should return an error when two contact with the same nom/prenom', () => {
+      listFind.returns(0);
+
+      const result = carnetService.save({ nom: 'CANARY', prenom: 'Alice' });
+
+      expect(listPush).to.have.not.been.called;
+      expect(result).to.deep.equal({ exist: true });
     });
   });
 
