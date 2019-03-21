@@ -86,5 +86,24 @@ describe('carnet controller', () => {
       });
       expect(saveFct).to.have.been.called;
     });
+
+    it('should handle and return an errors when two fields are missing', () => {
+      const missingError = { missing: ['tel', 'prenom'] };
+      saveFct.returns(missingError);
+      const request = {
+        body: {
+          nom: 'CANARY',
+        },
+      };
+
+      carnetController.addContact(request, response);
+
+      expect(response.render).to.have.been.calledWith('index', {
+        nom: 'CANARY',
+        prenom: undefined,
+        errors: missingError,
+      });
+      expect(saveFct).to.have.been.called;
+    });
   });
 });
