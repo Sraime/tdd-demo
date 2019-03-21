@@ -3,7 +3,7 @@ const CarnetService = {
   list: [],
 
   save(object) {
-    this.list.push({ nom: "CANARY", prenom: "Alice", tel: "0102030405" })
+    this.list.push(object);
   },
 
 };
