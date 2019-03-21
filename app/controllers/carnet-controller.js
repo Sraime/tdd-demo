@@ -7,8 +7,8 @@ const CarnetController = {
   },
 
   addContact(req, res) {
-    carnetService.save({ nom: "CANARY", prenom: "Alice", tel: "0102030405" });
-    res.render('index', { nom: "CANARY", prenom: "Alice" });
+    carnetService.save({ nom: req.body.nom, prenom: req.body.prenom, tel: req.body.tel });
+    res.render('index', { nom: req.body.nom, prenom: req.body.prenom });
   },
 };
 
