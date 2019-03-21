@@ -34,3 +34,11 @@ When('Je valide l\'enregistrement du contact', () => {
 Then('Le message {string} s\'affiche', (message) => {
   I.see(message);
 });
+
+Given('Le contact nom : {string} / prenom : {string} / téléphone : {string} est enregistré', (nom, prenom, tel) => {
+  I.amOnPage('http://localhost:3000');
+  I.fillField('nom', nom);
+  I.fillField('prenom', prenom);
+  I.fillField('tel', tel);
+  I.click('#form-enregistrement .btn-save');
+});
