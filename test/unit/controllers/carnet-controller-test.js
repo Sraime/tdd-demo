@@ -51,7 +51,7 @@ describe('carnet controller', () => {
       expect(response.render).to.have.been.calledWith('index', { nom: 'CANARY', prenom: 'Alice' });
       expect(saveFct).to.have.been.calledWith(request.body);
     });
-    
+
     it('should render Bob BABOUCHE', () => {
       const request = {
         body: {
@@ -60,11 +60,31 @@ describe('carnet controller', () => {
           tel: '0102030405',
         },
       };
-  
+
       carnetController.addContact(request, response);
-  
+
       expect(response.render).to.have.been.calledWith('index', { nom: 'BABOUCHE', prenom: 'Bob' });
       expect(saveFct).to.have.been.calledWith(request.body);
+    });
+
+    it('should handle and return missings errors from the save function', () => {
+      const missingError = { missing: ['tel'] };
+      saveFct.returns(missingError);
+      const request = {
+        body: {
+          nom: 'CANARY',
+          prenom: 'Alice',
+        },
+      };
+
+      carnetController.addContact(request, response);
+
+      expect(response.render).to.have.been.calledWith('index', {
+        nom: 'CANARY',
+        prenom: 'Alice',
+        errors: missingError,
+      });
+      expect(saveFct).to.have.been.called;
     });
   });
 });
