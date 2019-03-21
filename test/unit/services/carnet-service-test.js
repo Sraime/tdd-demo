@@ -18,12 +18,23 @@ describe('carnet service', () => {
     afterEach(() => {
       listPush.restore();
     });
-    it('should save the object in a list', () => {
+    it('should save Alice in a list', () => {
       const object = {
         nom: 'CANARY',
         prenom: 'Alice',
         tel: '0102030405',
-      }
+      };
+      carnetService.save(object);
+
+      expect(listPush).to.have.been.calledWith(object);
+    });
+
+    it('should save Bob in a list', () => {
+      const object = {
+        nom: 'BABOUCHE',
+        prenom: 'Bob',
+        tel: '0102030405',
+      };
       carnetService.save(object);
 
       expect(listPush).to.have.been.calledWith(object);
