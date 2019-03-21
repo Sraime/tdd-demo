@@ -51,9 +51,23 @@ describe('carnet service', () => {
       validateFct.returns(missingError);
 
       const result = carnetService.save({ nom: 'CANARY', prenom: 'Alice' });
-      
+
       expect(listPush).to.have.not.been.called;
       expect(result).to.deep.equal(missingError);
+    });
+  });
+
+  describe('validateContact', () => {
+    it('should return null when the tel, nom and prenom are not empty', () => {
+      const contact = {
+        nom: 'BABOUCHE',
+        prenom: 'Bob',
+        tel: '0102030405',
+      };
+
+      const result = carnetService.validateContact(contact);
+
+      expect(result).to.be.null;
     });
   });
 });
