@@ -7,3 +7,10 @@ Feature: création d'un contact
         Given Je suis sur la page d'accueil
         When Je reseigne l'option d'enregistrement "nom" avec "BABOUCHE"
         Then Je ne peux pas enregistrer le contact
+
+    Scenario: Je peux enregistrer un contact quand tout les champs sont renseigner
+        Given Je suis sur la page d'accueil
+        When Je reseigne l'option d'enregistrement "nom" avec "CANARY"
+        And Je reseigne l'option d'enregistrement "prenom" avec "Alice"
+        And Je reseigne l'option d'enregistrement "tel" avec "0102030405"
+        Then Je peux enregistrer le contact

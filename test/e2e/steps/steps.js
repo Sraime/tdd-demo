@@ -12,3 +12,7 @@ When('Je reseigne l\'option d\'enregistrement {string} avec {string}', (name, va
 Then('Je ne peux pas enregistrer le contact', () => {
   I.seeElement('#form-enregistrement .btn-save:disabled');
 });
+
+Then('Je peux enregistrer le contact', () => {
+  I.seeElement('#form-enregistrement .btn-save:not(:disabled)');
+});
