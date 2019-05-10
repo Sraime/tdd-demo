@@ -30,3 +30,11 @@ Then('La fonctionnalité d\'enregitrement est dans son état initial', () => {
   I.seeInField('prenom', '');
   I.seeInField('tel', '');
 });
+
+Given('Le contact nom : {string} / prenom : {string} / téléphone : {string} est enregistré', (nom, prenom, tel) => {
+  I.amOnPage('http://localhost:3000');
+  I.fillField('nom', nom);
+  I.fillField('prenom', prenom);
+  I.fillField('tel', tel);
+  I.click('#form-enregistrement .btn-save');
+});

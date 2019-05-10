@@ -23,3 +23,13 @@ Feature: création d'un contact
         And Je valide l'enregistrement du contact
         Then Le message "Le contact Alice CANARY est enregistré" s'affiche
         And La fonctionnalité d'enregitrement est dans son état initial
+
+    Scenario: La création d'un contact déjà enregistré provoque une erreur
+        Given Le contact nom : "BABOUCHE" / prenom : "Bob" / téléphone : "0102030406" est enregistré
+        And Je suis sur la page d'accueil
+        When Je reseigne l'option d'enregistrement "nom" avec "BABOUCHE"
+        And Je reseigne l'option d'enregistrement "prenom" avec "Bob"
+        And Je reseigne l'option d'enregistrement "tel" avec "0102030405"
+        And Je valide l'enregistrement du contact
+        Then Le message "Bob BABOUCHE existe déjà" s'affiche
+        And La fonctionnalité d'enregitrement est dans son état initial
