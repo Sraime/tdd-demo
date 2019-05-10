@@ -1,5 +1,5 @@
 # Sujet
-L'objectif de ce projet est de démontrer la réalisation d'un projet express en TDD. Comme s'il s'agissait d'un véritable projet, nous partirons des demandes fonctionnelles formalisée sous forme de User Stories (US). 
+L'objectif de ce projet est de démontrer la réalisation d'un projet express en TDD. Comme s'il s'agissait d'un véritable projet, nous partirons des besoins fonctionnelles formalisée sous forme de User Stories (US). 
 
 L'application à réaliser est un carnet de contacts qui se présente sous la forme d'une application web. Il devra permettre :
 1. La création d'un contact
@@ -14,7 +14,7 @@ A noter que :
 * La réalisation se fera dans l'ordre des US (1, 2, 3). 
 * Le TDD sera appliqué selon la méthode Red/Green/Refactor/Commit
 
-Ce TP proposera une solution pour la réalisation de la première US. Il est cependant conseillé faire les autres US par vous même pour mettre en pratique ce que vous avez apris.
+Ce TP proposera une solution pour la réalisation de la première US. Libre à vous de le continuer pour vous exercer (rédac tion des US, identification des scénarios, réalisation).
 
 Bon Courage !
 
@@ -26,10 +26,8 @@ Bon Courage !
 |-|-|
 | Titre                 | Création d'un contact |
 | En tant que           | Utilisateur de l'application |
-| Je souhaite           | Créer un nouveau contact dans mon carnet |
-| Afin                  | De le sauvegarder et de le réutiliser plus tard |
-| Contexte              | Rien n'est existant pour le moment. |
-| Besoin                | Depuis la page d'accueil, il doit être possible d'enregistrer un utilisateur. |
+| Je souhaite           | Créer un nouveau contact |
+| Afin de               | sauvegarder ses informations |
 
 ### Règles de gestion
 | Numéro | Description |
