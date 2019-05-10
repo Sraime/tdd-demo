@@ -51,26 +51,6 @@ Bon Courage !
     </thead>
     <tbody>
         <tr>
-            <td  valign="top"></td>
-            <td valign="top">
-                <ul>
-                    <li>
-                        Je suis sur la page d'accueil
-                    </li>
-                </ul>
-            </td>
-            <td valign="top">
-                <ul>
-                    <li>
-                        La fonctionnalité d'enregitrement est présente
-                    </li>
-                    <li>
-                        La fonctionnalité d'enregitrement est dans son état initial
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
             <td valign="top">
                 <ul>
                     <li>
