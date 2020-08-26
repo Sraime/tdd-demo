@@ -1,35 +1,18 @@
 Feature: création d'un contact
-    En tant qu'utilisateur de l'application
-    Je souhaite créer un nouveau contact dans mon carnet
-    Afin de De le sauvegarder et de le réutiliser plus tard
+    En tant utilisateur de l'application
+    Je veux créer un contact
+    Afin de sauvegarder ses informations
 
-    Scenario: Immpossible d'enregistrer si un champs est manquant
-        Given Je suis sur la page d'accueil
-        When Je reseigne l'option d'enregistrement "nom" avec "BABOUCHE"
-        Then Je ne peux pas enregistrer le contact
+    Scenario: création impossible
+        Given Je suis sur le formulaire de création de contact
+        When Je saisis le champ "Prénom" avec la valeur "<valPrenom>"
+        And Je saisis le champ "Nom" avec la valeur "<valNom>"
+        And Je saisis le champ "Téléphone" avec la valeur "<valTel>"
+        And Je clique sur le bouton d'ajout de contact
+        Then Un message d'erreur "Contact non créé : le <invalidField> est invalide"
 
-    Scenario: Je peux enregistrer un contact quand tout les champs sont renseigner
-        Given Je suis sur la page d'accueil
-        When Je reseigne l'option d'enregistrement "nom" avec "CANARY"
-        And Je reseigne l'option d'enregistrement "prenom" avec "Alice"
-        And Je reseigne l'option d'enregistrement "tel" avec "0102030405"
-        Then Je peux enregistrer le contact
-
-    Scenario: Après un création réussie, un message de validation apparait et le formulaire réinitialisé
-        Given Je suis sur la page d'accueil
-        When Je reseigne l'option d'enregistrement "nom" avec "CANARY"
-        And Je reseigne l'option d'enregistrement "prenom" avec "Alice"
-        And Je reseigne l'option d'enregistrement "tel" avec "0102030405"
-        And Je valide l'enregistrement du contact
-        Then Le message "Le contact Alice CANARY est enregistré" s'affiche
-        And La fonctionnalité d'enregitrement est dans son état initial
-
-    Scenario: La création d'un contact déjà enregistré provoque une erreur
-        Given Le contact nom : "BABOUCHE" / prenom : "Bob" / téléphone : "0102030406" est enregistré
-        And Je suis sur la page d'accueil
-        When Je reseigne l'option d'enregistrement "nom" avec "BABOUCHE"
-        And Je reseigne l'option d'enregistrement "prenom" avec "Bob"
-        And Je reseigne l'option d'enregistrement "tel" avec "0102030405"
-        And Je valide l'enregistrement du contact
-        Then Le message "Bob BABOUCHE existe déjà" s'affiche
-        And La fonctionnalité d'enregitrement est dans son état initial
+            Examples:
+                | invalidField | valNom | valPrenom | valTel | 
+                | nom | Romain | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | 0660000000 |
+                | nom | Roooooooooooooooooooooooooooooooooooooooooooooooomain | CATTEAU | 0660000000 |
+                | nom | Romain | CATTEAU | 0 |

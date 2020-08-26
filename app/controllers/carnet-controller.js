@@ -2,8 +2,12 @@ const carnetService = require('../services/carnet-service');
 
 const CarnetController = {
 
-  getForm(req, res) {
+  homePage(req, res) {
     res.render('index');
+  },
+
+  getForm(req, res) {
+    res.render('addForm');
   },
 
   addContact(req, res) {
@@ -13,8 +17,8 @@ const CarnetController = {
       tel: req.body.tel,
     };
     const errors = carnetService.save(contact);
-    if (errors) { res.render('index', { errors, nom: contact.nom, prenom: contact.prenom }); }
-    res.render('index', { nom: contact.nom, prenom: contact.prenom });
+    if (errors) { res.render('addForm', { errors, nom: contact.nom, prenom: contact.prenom }); }
+    res.render('addForm', { nom: contact.nom, prenom: contact.prenom });
   },
 };
 

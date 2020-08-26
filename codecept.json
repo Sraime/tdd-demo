@@ -3,7 +3,7 @@
   "helpers": {
     "Puppeteer": {
       "url": "http://localhost",
-      "show": false, 
+      "show": true, 
       "windowSize" : "1024x768"
     }
   },

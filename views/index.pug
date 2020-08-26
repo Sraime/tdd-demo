@@ -2,19 +2,4 @@ html
     head
         script(src="/main.js")
     body
-        if nom 
-            p Le contact #{prenom} #{nom} est enregistré
-        if errors
-            if errors.exist
-                p #{prenom} #{nom} existe déjà
-        form(id="form-enregistrement" method="post")
-            div(class="group-field")
-                label(for="input-nom") Nom
-                input(id="input-nom", type="text", name="nom" onkeypress="onFieldChange()")
-            div(class="group-field")
-                label(for="input-prenom") Prénom
-                input(id="input-prenom", type="text", name="prenom" onkeypress="onFieldChange()")
-            div(class="group-field")
-                label(for="input-tel") Numéro
-                input(id="input-tel", type="text", name="tel" onkeypress="onFieldChange()")
-            button(id="btn-enregistrer", class = "btn-save", disabled) enregistrer
+        a(href="/add") Ajouter un contact
