@@ -1,5 +1,5 @@
 {
-  "name": "poc_codecept",
+  "name": "bdd-demo",
   "version": "1.0.0",
   "description": "Sample projet for an express app. Perfect to begin.",
   "repository": {
@@ -23,22 +23,22 @@
   "author": "Robin COLLAS",
   "license": "ISC",
   "dependencies": {
-    "acorn": "^6.1.1",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "nodemon": "^1.18.10",
-    "pug": "^2.0.3"
+    "acorn": "^8.0.4",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
+    "pug": "^3.0.0"
   },
   "devDependencies": {
-    "allure-commandline": "^2.9.0",
-    "chai": "^3.5.0",
+    "allure-commandline": "^2.13.0",
+    "chai": "^4.2.0",
     "chai-sinon": "^2.8.1",
-    "codeceptjs": "^2.0.7",
-    "eslint": "^5.15.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "mocha": "^5.2.0",
-    "puppeteer": "^1.13.0",
-    "sinon": "^7.2.7"
+    "codeceptjs": "^3.0.2",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.2.1",
+    "puppeteer": "^5.5.0",
+    "sinon": "^9.2.1"
   }
 }
